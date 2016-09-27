@@ -1,0 +1,13 @@
+<header>
+  <h1>Active Players</h1>    
+  <login-buttons></login-buttons>
+</header>
+
+<ul>
+  <li ng-repeat="player in $ctrl.players" ng-class="{'checked': player.absent}">
+    <button class="delete" ng-click="$ctrl.setAbsent(player)">&times;</button>
+    <span class="text">
+      {{player.name}}
+    </span>
+  </li>
+</ul>
