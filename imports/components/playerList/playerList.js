@@ -16,6 +16,9 @@ class PlayerListCtrl {
             name: 1
           }
         });
+      },
+      currentUser(){
+        return Meteor.user();
       }
     })
   }
@@ -24,12 +27,12 @@ class PlayerListCtrl {
   setAbsent(player) {
     Meteor.call('player.setAbsent', player._id, !player.absent);
   }
+
 }
 
 export default angular.module('playerList', [
   angularMeteor
-])
-  .component('playerList', {
+]).component('playerList', {
     templateUrl: 'imports/components/playerList/playerList.html',
     controller: ['$scope', PlayerListCtrl]
   });
