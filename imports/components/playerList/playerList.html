@@ -4,8 +4,8 @@
 </header>
 
 <ul>
-  <li ng-repeat="player in $ctrl.players" ng-class="{'checked': player.absent}">
-    <button class="delete" ng-click="$ctrl.setAbsent(player)">&times;</button>
+  <li ng-repeat="player in $ctrl.players" ng-class="{'checked': player.absent}" ng-click="$ctrl.setAbsent(player)">
+    <button class="delete" ng-show="!player.absent">&times;</button>
     <span class="text">
       {{player.name}}
     </span>

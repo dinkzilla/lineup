@@ -17,40 +17,7 @@ class RandomButtonController {
   }
 
   generateLineup(){
-    var activeMales = Players.find({ absent: false, gender: "Male" }).fetch();
-    var activeFemales = Players.find({ absent: false, gender: "Female" }).fetch();
-
-    //any more than twice as many males will result in a non-static lineup.
-    if (activeMales.length/2 > activeFemales.length){
-      throw new Meteor.Error('not-implemented');
-    }
-
-    var lineup = [];
-
-    while(activeFemales.length > 0){
-      if(activeMales.length > 1){
-        for(i = 0; i < 2; i++){
-          var index = Math.floor(Math.random() * (activeMales.length - 1));
-          lineup.push(activeMales[index]._id);
-          activeMales.splice(index,1);
-        }
-      } else if (activeMales.length === 1){
-          var index = Math.floor(Math.random() * (activeMales.length - 1));
-          lineup.push(activeMales[index]._id);
-          activeMales.splice(index,1);
-      }
-      var femaleIndex = Math.floor(Math.random() * (activeFemales.length - 1));
-       lineup.push(activeFemales[femaleIndex]._id);
-      activeFemales.splice(femaleIndex,1);
-    }
-
-    while(activeMales.length > 0){
-      var index = Math.floor(Math.random() * (activeMales.lenth -1));
-      lineup.push(activeMales[index]._id);
-      activeMales.splice(index,1);
-    }
-
-    Meteor.call("players.order", lineup);
+    Meteor.call("players.randomize");
   }
 }
 export default angular.module('randomButton', [
