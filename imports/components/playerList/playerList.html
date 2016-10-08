@@ -1,14 +1,15 @@
-<div ng-show="$ctrl.currentUser">
-<header>
-  <h1>Active Players</h1>
-</header>
 
-<ul>
-  <li ng-repeat="player in $ctrl.players" ng-class="{'checked': player.absent}" ng-click="$ctrl.setAbsent(player)">
-    <button class="delete" ng-show="!player.absent">&times;</button>
+<div class="container" ng-show="$ctrl.currentUser">
+<div class="page-header">
+  <h3>Active Players</h3>
+</div>
+
+<ul class="list-group">
+  <li class="list-group-item" ng-repeat="player in $ctrl.players" ng-class="{'disabled': player.absent}" ng-click="$ctrl.setAbsent(player)">
     <span class="text">
       {{player.name}}
     </span>
+    <span class="glyphicon glyphicon-remove pull-right" class="delete" ng-show="!player.absent"></span>
   </li>
 </ul>
 </div>

@@ -19,10 +19,10 @@ ecmascript@0.5.8              # Enable ECMAScript2015+ syntax in app code
 autopublish@1.0.7             # Publish all data to the clients (for prototyping)
 http@1.2.9
 accounts-password
-accounts-ui@1.1.9
 msavin:mongol
 angular-templates
 shell-server
-dotansimha:accounts-ui-angular
 check
 dispatch:twilio
+twbs:bootstrap
+carlosbaraza:accounts-ui-bootstrap-3-angular

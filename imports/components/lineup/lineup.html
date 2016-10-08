@@ -1,11 +1,13 @@
-<header>
-  <h1>Lineup</h1>
-</header>
+<div class="container">
+<div class="page-header">
+  <h3>Lineup</h3>
+</div>
 
-<ul>
-  <li ng-repeat="player in $ctrl.activePlayers">
+<ul class="list-group">
+  <li class="list-group-item" ng-repeat="player in $ctrl.activePlayers">
     <span class="text">
       {{player.name}}
     </span>
   </li>
 </ul>
+</div>

@@ -2,16 +2,21 @@
   <title>Wiffleball Lineup Generator</title>
 </head>
 
-<body>
-  <div class="container" ng-app="lineupApp">
-    <lineup></lineup>
-    <header>
-      <h1>Captain Shit</h1>
-    </header>
+
+<body ng-app="lineupApp">
+  <nav class="navbar navbar-fixed-top navbar-inverse">
+    <div class="container">
+      <h3 class="navbar-text">Wiffleball</h3>
+        <ul class="nav navbar-nav navbar-right">
+          <login-buttons></login-buttons>
+        </ul>
+    </div>
+  </nav>
+  <div class="container" style="padding-top: 45px">
     <player-list></player-list>
     <random-button></random-button>
     <text-button></text-button>
-    
-    <login-buttons></login-buttons>
+
+    <lineup></lineup>
   </div>
 </body>
