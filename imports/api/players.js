@@ -59,27 +59,32 @@ Meteor.methods({
 
     var lineup = [];
 
+
     while(activeFemales.length > 0){
-      if(activeMales.length > 1){
+      //pick a random lady
+      femaleIndex = Math.floor(Math.random() * (activeFemales.length - 1));
+      if(activeMales.length >= 2){
+        //add two dudes and a lady if you can
         for(i = 0; i < 2; i++){
-          var index = Math.floor(Math.random() * (activeMales.length - 1));
-          lineup.push(activeMales[index]._id);
-          activeMales.splice(index,1);
+          maleIndex = Math.floor(Math.random() * (activeMales.length - 1));
+          lineup.push(activeMales[maleIndex]._id);
+          activeMales.splice(maleIndex,1);
         }
+        lineup.push(activeFemales[femaleIndex]._id);
       } else if (activeMales.length === 1){
-          lineup.push(activeMales[0]._id);
-          activeMales.splice(index,1);
+        //add only one dude and a lady, if only one dude is left
+        lineup.push(activeMales[0]._id);
+        activeMales.splice(0,1);
+        lineup.push(activeFemales[femaleIndex]._id);
+      } else {
+        //if there are no more dudes to add, the lineup should already be legal, so throw the girl in a random spot.
+        randomIndex = Math.floor(Math.random() * (lineup.length - 1));
+        lineup.splice(randomIndex, 0, activeFemales[femaleIndex]._id);
       }
-      var femaleIndex = Math.floor(Math.random() * (activeFemales.length - 1));
-      lineup.push(activeFemales[femaleIndex]._id);
       activeFemales.splice(femaleIndex,1);
     }
 
-    while(activeMales.length > 0){
-      var index = Math.floor(Math.random() * (activeMales.lenth -1));
-      lineup.push(activeMales[index]._id);
-      activeMales.splice(index,1);
-    }
+    //idiot! this logic makes no sense. and this will not be helpful later. sorry bud.
 
     Meteor.call("players.order", lineup);
   }
