@@ -11,6 +11,10 @@ var twilioClient = new Twilio({
 Meteor.methods({
 
   'sendSMS': function (sendTo, message) {
+    if (!Meteor.userId()) {
+      throw new Meteor.Error('not-authorized');
+    }
+
     try {
       var result = twilioClient.sendSMS({
         to: sendTo,
