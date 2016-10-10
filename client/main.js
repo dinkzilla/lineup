@@ -6,7 +6,7 @@ import randomButton from '../imports/components/randomButton/randomButton';
 import textButton from '../imports/components/textButton/textButton';
 import '../imports/startup/accounts-config.js';
 
-angular.module('lineupApp', [
+var app = angular.module('lineupApp', [
   angularMeteor,
   playerList.name,
   lineup.name,

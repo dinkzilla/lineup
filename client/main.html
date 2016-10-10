@@ -1,21 +1,23 @@
 <head>
-  <title>Wiffleball Lineup Generator</title>
+  <title>Wifflebombs' Lineup</title>
 </head>
 
-
 <body ng-app="lineupApp">
-  <nav class="navbar navbar-fixed-top navbar-inverse">
+  <nav class="navbar navbar-inverse">
     <div class="container">
-      <h3 class="navbar-text">Wiffleball</h3>
+      <h3 class="navbar-text">Wifflebombs' Lineup</h3>
         <ul class="nav navbar-nav navbar-right">
           <login-buttons></login-buttons>
         </ul>
     </div>
   </nav>
-  <div class="container" style="padding-top: 45px">
+
+  <div class="container">
     <player-list></player-list>
-    <random-button></random-button>
-    <text-button></text-button>
+    <div class="text-center" style="margin-bottom:20px">
+      <random-button></random-button>
+      <text-button></text-button>
+    </div>
 
     <lineup></lineup>
   </div>

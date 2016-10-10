@@ -1,7 +1,6 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 import { Meteor } from 'meteor/meteor';
-//import { Texting } from '../../api/texting.js';
 
 import template from './textButton.html';
 
