@@ -10,7 +10,8 @@ Meteor.startup(() => {
   Players.insert({
     name: "Jon M",
     absent: false,
-    gender: "Male"
+    gender: "Male",
+    phoneNumber: "+17178058065"
   });
   Players.insert({
     name: "Alex M",

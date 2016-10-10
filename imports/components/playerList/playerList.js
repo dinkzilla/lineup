@@ -15,7 +15,7 @@ class PlayerListCtrl {
           sort: {
             name: 1
           }
-        });
+        }).fetch();
       },
       currentUser(){
         return Meteor.user();

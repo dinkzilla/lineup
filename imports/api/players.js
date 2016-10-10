@@ -58,15 +58,13 @@ Meteor.methods({
     }
 
     var lineup = [];
-
-
     while(activeFemales.length > 0){
       //pick a random lady
-      femaleIndex = Math.floor(Math.random() * (activeFemales.length - 1));
+      let femaleIndex = Math.floor(Math.random() * (activeFemales.length - 1));
       if(activeMales.length >= 2){
         //add two dudes and a lady if you can
         for(i = 0; i < 2; i++){
-          maleIndex = Math.floor(Math.random() * (activeMales.length - 1));
+          let maleIndex = Math.floor(Math.random() * (activeMales.length - 1));
           lineup.push(activeMales[maleIndex]._id);
           activeMales.splice(maleIndex,1);
         }
@@ -78,13 +76,11 @@ Meteor.methods({
         lineup.push(activeFemales[femaleIndex]._id);
       } else {
         //if there are no more dudes to add, the lineup should already be legal, so throw the girl in a random spot.
-        randomIndex = Math.floor(Math.random() * (lineup.length - 1));
+        let randomIndex = Math.floor(Math.random() * (lineup.length - 1));
         lineup.splice(randomIndex, 0, activeFemales[femaleIndex]._id);
       }
       activeFemales.splice(femaleIndex,1);
     }
-
-    //idiot! this logic makes no sense. and this will not be helpful later. sorry bud.
 
     Meteor.call("players.order", lineup);
   }
