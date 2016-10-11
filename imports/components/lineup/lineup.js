@@ -11,7 +11,7 @@ class LineupCtrl {
     this.helpers({
       activePlayers(){
         return Players.find({
-          absent: false
+          absent: { $ne : true }
         },{
           sort: {
             order: 1

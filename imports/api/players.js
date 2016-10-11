@@ -49,8 +49,8 @@ Meteor.methods({
 
   //gets all players and returns a legal a wiffleball lineup.
   'players.randomize' (){
-    var activeMales = _.shuffle(Players.find({ absent: false, gender: "Male" }).fetch());
-    var activeFemales = _.shuffle(Players.find({ absent: false, gender: "Female" }).fetch());
+    var activeMales = _.shuffle(Players.find({ absent: {$ne:true}, gender: "Male" }).fetch());
+    var activeFemales = _.shuffle(Players.find({ absent: {$ne:true}, gender: "Female" }).fetch());
 
     //any more than twice as many males will result in a non-static lineup.
     if (activeMales.length/2 > activeFemales.length){

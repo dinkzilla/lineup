@@ -28,7 +28,7 @@ Meteor.methods({
 
   'textPlayers': function(){
     var lineup = Players.find({
-        absent: false
+        absent: {$ne: true}
       },{
         sort: {
           order: 1
